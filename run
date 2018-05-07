@@ -1,21 +1,8 @@
 #!/usr/bin/env python3
 import sys
 
-try:
-    from clinner.command import command, Type as CommandType
-    from clinner.run import Main
-except (ImportError, ModuleNotFoundError):
-    import pip
-    import site
-    import importlib
-
-    print('Installing Clinner')
-    pip.main(['install', '--user', '-qq', 'clinner'])
-
-    importlib.reload(site)
-
-    from clinner.command import command, Type as CommandType
-    from clinner.run import Main
+from clinner.command import Type as CommandType, command
+from clinner.run import Main
 
 from miner.storj import Miner as StorjMiner
 
